@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
+options: "4aad589c8aebbb4f8bc2512db2de560c"
+build_time: [1571809175, 143115000]
+inputs:
+  "/Users/isaacdubuque/test_project/ios/swift_default.swift": [1571754765, 616678253]

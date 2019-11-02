@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>057B3CEB-E1E4-42B0-8663-A2B8E88CED54</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>057B3CEB-E1E4-42B0-8663-A2B8E88CED54.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>test_project project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>test_project</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace test_project with scheme test_project and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>593630690.63785005</real>
+			<key>timeStoppedRecording</key>
+			<real>593630691.60773396</real>
+			<key>title</key>
+			<string>Building workspace test_project with scheme test_project and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>057B3CEB-E1E4-42B0-8663-A2B8E88CED54</string>
+		</dict>
+		<key>8AB72307-0654-45ED-B6F9-DB6A3977F2EB</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>8AB72307-0654-45ED-B6F9-DB6A3977F2EB.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>test_project project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>test_project</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace test_project with scheme test_project and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>593621160.56092298</real>
+			<key>timeStoppedRecording</key>
+			<real>593621162.02084196</real>
+			<key>title</key>
+			<string>Building workspace test_project with scheme test_project and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>8AB72307-0654-45ED-B6F9-DB6A3977F2EB</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
