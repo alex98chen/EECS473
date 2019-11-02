@@ -1,2 +1,5 @@
 App/*
 !App/App.js
+Board/*
+!Board/qn908xcdk_wireless_examples_bluetooth_running_speed_cadence_sensor_freertos1/bluetooth/*
+!Board/qn908xcdk_wireless_examples_bluetooth_running_speed_cadence_sensor_freertos1/source/*
