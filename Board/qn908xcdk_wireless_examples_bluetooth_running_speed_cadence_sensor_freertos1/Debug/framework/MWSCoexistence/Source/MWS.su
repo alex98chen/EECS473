@@ -1,0 +1,17 @@
+fsl_iocon.h:96:22:IOCON_PinMuxSet	32	static
+MWS.c:207:13:MWS_Register	24	static
+MWS.c:249:10:MWS_GetInactivityDuration	24	static
+MWS.c:280:13:MWS_Acquire	24	static
+MWS.c:331:13:MWS_Release	24	static
+MWS.c:371:13:MWS_Abort	16	static
+MWS.c:395:16:MWS_GetActiveProtocol	4	static
+MWS.c:413:13:MWS_SignalIdle	24	static
+MWS.c:452:13:MWS_CoexistenceInit	32	static
+MWS.c:510:6:MWS_CoexistenceEnable	8	static
+MWS.c:550:6:MWS_CoexistenceDisable	4	static
+MWS.c:571:13:MWS_CoexistenceRegister	24	static
+MWS.c:614:9:MWS_CoexistenceDenyState	16	static
+MWS.c:636:6:MWS_CoexistenceSetPriority	16	static
+MWS.c:671:13:MWS_CoexistenceRequestAccess	24	static
+MWS.c:762:13:MWS_CoexistenceChangeAccess	24	static
+MWS.c:801:6:MWS_CoexistenceReleaseAccess	4	static
