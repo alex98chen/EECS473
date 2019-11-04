@@ -1,4 +1,0 @@
-clock_config.c:52:6:BOARD_InitBootClocks	8	static
-clock_config.c:87:6:BOARD_BootClockLSRUN	8	static
-clock_config.c:152:6:BOARD_BootClockRUN	8	static
-clock_config.c:222:6:BOARD_BootClockHSRUN	8	static

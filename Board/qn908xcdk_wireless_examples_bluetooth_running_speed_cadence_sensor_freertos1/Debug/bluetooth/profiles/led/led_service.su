@@ -1,6 +1,0 @@
-led_service.c:12:13:led_Start	16	static
-led_service.c:18:13:led_Stop	16	static
-led_service.c:23:13:led_Subscribe	16	static
-led_service.c:29:13:led_Unsubscribe	16	static
-led_service.c:36:13:led_write	24	static
-led_service.c:49:13:led_write_from_server	24	static

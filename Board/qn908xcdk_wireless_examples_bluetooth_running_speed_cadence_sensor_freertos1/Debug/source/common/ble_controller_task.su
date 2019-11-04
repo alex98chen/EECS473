@@ -1,3 +1,0 @@
-ble_controller_task.c:107:13:ControllerTask	16	static
-ble_controller_task.c:144:13:Controller_TaskInit	8	static
-ble_controller_task.c:246:6:BLE_Semaphore_Give	8	static
