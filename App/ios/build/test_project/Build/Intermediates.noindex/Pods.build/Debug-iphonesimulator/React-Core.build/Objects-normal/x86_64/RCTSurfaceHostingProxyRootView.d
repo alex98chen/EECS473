@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingProxyRootView.mm \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingProxyRootView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTRootView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTBridge.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTBridgeDelegate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTJavaScriptLoader.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTDefines.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTInspectorDevServerHelper.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTPackagerConnection.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTBridgeModule.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTFrameUpdate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTInvalidating.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/Surface/SurfaceHostingView/RCTSurfaceHostingView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTSurfaceDelegate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTSurfaceStage.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTSurfaceSizeMeasureMode.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTAssert.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTUtils.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Profiler/RCTProfile.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTRootContentView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTBorderStyle.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTComponent.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Private/React-Core/React/RCTPointerEvents.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/RCTRootViewDelegate.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Base/Surface/RCTSurface.h \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/YGEnums.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/YGMacros.h

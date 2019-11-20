@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Concurrent::Utility::NativeExtensionLoader - concurrent-ruby-1.1.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-allow_c_extensions-3F">#allow_c_extensions?</a>
+    
+    <li ><a href="#method-i-c_extensions_loaded-3F">#c_extensions_loaded?</a>
+    
+    <li ><a href="#method-i-java_extensions_loaded-3F">#java_extensions_loaded?</a>
+    
+    <li ><a href="#method-i-load_error_path">#load_error_path</a>
+    
+    <li ><a href="#method-i-load_native_extensions">#load_native_extensions</a>
+    
+    <li ><a href="#method-i-set_c_extensions_loaded">#set_c_extensions_loaded</a>
+    
+    <li ><a href="#method-i-set_java_extensions_loaded">#set_java_extensions_loaded</a>
+    
+    <li ><a href="#method-i-try_load_c_extension">#try_load_c_extension</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Concurrent::Utility::NativeExtensionLoader">
+  <h1 id="module-Concurrent::Utility::NativeExtensionLoader" class="module">
+    module Concurrent::Utility::NativeExtensionLoader
+  </h1>
+
+  <section class="description">
+    
+<p>@!visibility private</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-allow_c_extensions-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">allow_c_extensions?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="allow_c_extensions-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">allow_c_extensions?</span>
+  <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">on_cruby?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-c_extensions_loaded-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">c_extensions_loaded?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="c_extensions_loaded-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">c_extensions_loaded?</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@c_extensions_loaded</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@c_extensions_loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-java_extensions_loaded-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">java_extensions_loaded?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="java_extensions_loaded-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">java_extensions_loaded?</span>
+  <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@java_extensions_loaded</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@java_extensions_loaded</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_native_extensions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_native_extensions</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_native_extensions-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_native_extensions</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">Synchronization</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractObject</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;native_extension_loader loaded before Synchronization::AbstractObject&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">on_cruby?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">c_extensions_loaded?</span>
+    [<span class="ruby-string">&#39;concurrent/concurrent_ruby_ext&#39;</span>,
+     <span class="ruby-node">&quot;concurrent/#{RUBY_VERSION[0..2]}/concurrent_ruby_ext&quot;</span>
+    ].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">try_load_c_extension</span> <span class="ruby-identifier">p</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">on_jruby?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">java_extensions_loaded?</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;concurrent/concurrent_ruby.jar&#39;</span>
+      <span class="ruby-identifier">set_java_extensions_loaded</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>, <span class="ruby-string">&quot;Java extensions are required for JRuby.\n&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-load_error_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_error_path</span><span
+            class="method-args">(error)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_error_path-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">load_error_path</span>(<span class="ruby-identifier">error</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">error</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:path</span>
+    <span class="ruby-identifier">error</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">error</span>.<span class="ruby-identifier">message</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; -- &#39;</span>).<span class="ruby-identifier">last</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_c_extensions_loaded" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_c_extensions_loaded</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_c_extensions_loaded-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_c_extensions_loaded</span>
+  <span class="ruby-ivar">@c_extensions_loaded</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_java_extensions_loaded" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_java_extensions_loaded</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_java_extensions_loaded-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_java_extensions_loaded</span>
+  <span class="ruby-ivar">@java_extensions_loaded</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-try_load_c_extension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_load_c_extension</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_load_c_extension-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/utility/native_extension_loader.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">try_load_c_extension</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">set_c_extensions_loaded</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">load_error_path</span>(<span class="ruby-identifier">e</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">path</span>
+    <span class="ruby-comment"># move on with pure-Ruby implementations</span>
+    <span class="ruby-comment"># TODO (pitr-ch 12-Jul-2018): warning on verbose?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

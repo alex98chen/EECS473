@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::TimerSet - concurrent-ruby-1.1.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="RubyExecutorService.html">Concurrent::RubyExecutorService</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-kill">#kill</a>
+    
+    <li ><a href="#method-i-ns_initialize">#ns_initialize</a>
+    
+    <li ><a href="#method-i-ns_post_task">#ns_post_task</a>
+    
+    <li ><a href="#method-i-ns_reset_if_forked">#ns_reset_if_forked</a>
+    
+    <li ><a href="#method-i-ns_shutdown_execution">#ns_shutdown_execution</a>
+    
+    <li ><a href="#method-i-post">#post</a>
+    
+    <li ><a href="#method-i-post_task">#post_task</a>
+    
+    <li ><a href="#method-i-process_tasks">#process_tasks</a>
+    
+    <li ><a href="#method-i-remove_task">#remove_task</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::TimerSet">
+  <h1 id="class-Concurrent::TimerSet" class="class">
+    class Concurrent::TimerSet
+  </h1>
+
+  <section class="description">
+    
+<p>Executes a collection of tasks, each after a given delay. A master task monitors the set and schedules each task for execution at the appropriate time. Tasks are run on the global thread pool or on the supplied executor. Each task is represented as a `ScheduledTask`.</p>
+
+<p>@see <a href="ScheduledTask.html"><code>Concurrent::ScheduledTask</code></a></p>
+
+<p>@!macro monotonic_clock_warning</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new set of timed tasks.</p>
+
+<p>@!macro executor_options</p>
+
+<pre>@param [Hash] opts the options used to specify the executor on which to perform actions
+@option opts [Executor] :executor when set use the given `Executor` instance.
+  Three special values are also supported: `:task` returns the global task pool,
+  `:operation` returns the global operation pool, and `:immediate` returns a new
+  `ImmediateExecutor` object.</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="RubyExecutorService.html#method-c-new"><code>Concurrent::RubyExecutorService::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-kill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kill</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Begin an immediate shutdown. In-progress tasks will be allowed to complete but enqueued tasks will be dismissed and no new tasks will be accepted. Has no additional effect if the thread pool is not running.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="kill-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kill</span>
+  <span class="ruby-identifier">shutdown</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post</span><span
+            class="method-args">(delay, *args, &amp;task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Post a task to be execute run after a given delay (in seconds). If the delay is less than 1/100th of a second the task will be immediately post to the executor.</p>
+
+<p>@param [Float] delay the number of seconds to wait for before executing the task. @param [Array&lt;Object&gt;] args the arguments passed to the task on execution.</p>
+
+<p>@yield the task to be performed.</p>
+
+<p>@return [Concurrent::ScheduledTask, false] <a href="IVar.html"><code>IVar</code></a> representing the task if the post</p>
+
+<pre>is successful; false after shutdown.</pre>
+
+<p>@raise [ArgumentError] if the intended execution time is not in the future. @raise [ArgumentError] if no block is given.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="post-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post</span>(<span class="ruby-identifier">delay</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;no block given&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">running?</span>
+  <span class="ruby-identifier">opts</span> = { <span class="ruby-value">executor:</span>  <span class="ruby-ivar">@task_executor</span>,
+           <span class="ruby-value">args:</span>      <span class="ruby-identifier">args</span>,
+           <span class="ruby-value">timer_set:</span> <span class="ruby-keyword">self</span> }
+  <span class="ruby-identifier">task</span> = <span class="ruby-constant">ScheduledTask</span>.<span class="ruby-identifier">execute</span>(<span class="ruby-identifier">delay</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>) <span class="ruby-comment"># may raise exception</span>
+  <span class="ruby-identifier">task</span>.<span class="ruby-identifier">unscheduled?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">false</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">task</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ns_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_initialize</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize the object.</p>
+
+<p>@param [Hash] opts the options to create the object with. @!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_initialize-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_initialize</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@queue</span>              = <span class="ruby-constant">Collection</span><span class="ruby-operator">::</span><span class="ruby-constant">NonConcurrentPriorityQueue</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">order:</span> <span class="ruby-value">:min</span>)
+  <span class="ruby-ivar">@task_executor</span>      = <span class="ruby-constant">Options</span>.<span class="ruby-identifier">executor_from_options</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">global_io_executor</span>
+  <span class="ruby-ivar">@timer_executor</span>     = <span class="ruby-constant">SingleThreadExecutor</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@condition</span>          = <span class="ruby-constant">Event</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@ruby_pid</span>           = <span class="ruby-identifier">$$</span> <span class="ruby-comment"># detects if Ruby has forked</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">auto_terminate</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auto_terminate</span>, <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_post_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_post_task</span><span
+            class="method-args">(task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_post_task-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_post_task</span>(<span class="ruby-identifier">task</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ns_running?</span>
+  <span class="ruby-identifier">ns_reset_if_forked</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">task</span>.<span class="ruby-identifier">initial_delay</span>) <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0.01</span>
+    <span class="ruby-identifier">task</span>.<span class="ruby-identifier">executor</span>.<span class="ruby-identifier">post</span> { <span class="ruby-identifier">task</span>.<span class="ruby-identifier">process_task</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">task</span>)
+    <span class="ruby-comment"># only post the process method when the queue is empty</span>
+    <span class="ruby-ivar">@timer_executor</span>.<span class="ruby-identifier">post</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-value">:process_tasks</span>)) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@condition</span>.<span class="ruby-identifier">set</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_reset_if_forked" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_reset_if_forked</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_reset_if_forked-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_reset_if_forked</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">$$</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@ruby_pid</span>
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-ivar">@condition</span>.<span class="ruby-identifier">reset</span>
+    <span class="ruby-ivar">@ruby_pid</span> = <span class="ruby-identifier">$$</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_shutdown_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_shutdown_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`ExecutorService` callback called during shutdown.</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_shutdown_execution-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_shutdown_execution</span>
+  <span class="ruby-identifier">ns_reset_if_forked</span>
+  <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@timer_executor</span>.<span class="ruby-identifier">kill</span>
+  <span class="ruby-identifier">stopped_event</span>.<span class="ruby-identifier">set</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_task</span><span
+            class="method-args">(task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Post the task to the internal queue.</p>
+
+<p>@note This is intended as a callback method from <a href="ScheduledTask.html"><code>ScheduledTask</code></a></p>
+
+<pre>only. It is not intended to be used directly. Post a task
+by using the `SchedulesTask#execute` method.</pre>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="post_task-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post_task</span>(<span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_post_task</span>(<span class="ruby-identifier">task</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_tasks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_tasks</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Run a loop and execute tasks in the scheduled order and at the approximate scheduled time. If no tasks remain the thread will exit gracefully so that garbage collection can occur. If there are no ready tasks it will sleep for up to 60 seconds waiting for the next scheduled task.</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="process_tasks-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">process_tasks</span>
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">task</span> = <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@condition</span>.<span class="ruby-identifier">reset</span>; <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">peek</span> }
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">task</span>
+
+    <span class="ruby-identifier">now</span>  = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">task</span>.<span class="ruby-identifier">schedule_time</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">now</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">diff</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+      <span class="ruby-comment"># We need to remove the task from the queue before passing</span>
+      <span class="ruby-comment"># it to the executor, to avoid race conditions where we pass</span>
+      <span class="ruby-comment"># the peek&#39;ed task to the executor and then pop a different</span>
+      <span class="ruby-comment"># one that&#39;s been added in the meantime.</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment"># Note that there&#39;s no race condition between the peek and</span>
+      <span class="ruby-comment"># this pop - this pop could retrieve a different task from</span>
+      <span class="ruby-comment"># the peek, but that task would be due to fire now anyway</span>
+      <span class="ruby-comment"># (because @queue is a priority queue, and this thread is</span>
+      <span class="ruby-comment"># the only reader, so whatever timer is at the head of the</span>
+      <span class="ruby-comment"># queue now must have the same pop time, or a closer one, as</span>
+      <span class="ruby-comment"># when we peeked).</span>
+      <span class="ruby-identifier">task</span> = <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">pop</span> }
+      <span class="ruby-identifier">task</span>.<span class="ruby-identifier">executor</span>.<span class="ruby-identifier">post</span> { <span class="ruby-identifier">task</span>.<span class="ruby-identifier">process_task</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@condition</span>.<span class="ruby-identifier">wait</span>([<span class="ruby-identifier">diff</span>, <span class="ruby-value">60</span>].<span class="ruby-identifier">min</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_task</span><span
+            class="method-args">(task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the given task from the queue.</p>
+
+<p>@note This is intended as a callback method from `ScheduledTask`</p>
+
+<pre>only. It is not intended to be used directly. Cancel a task
+by using the `ScheduledTask#cancel` method.</pre>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_task-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/timer_set.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_task</span>(<span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">task</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

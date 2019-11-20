@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec-generated.mm \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Target\ Support\ Files/FBReactNativeSpec/FBReactNativeSpec-prefix.pch \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/RCTRequired/RCTRequired/RCTRequired.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety/RCTConvertHelpers.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyVector.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyIterator.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/Optional.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/Portability.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/portability/Config.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/CPortability.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/Traits.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/Utility.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/lang/Exception.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Folly/folly/CppAttributes.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/RCTTypeSafety/RCTTypeSafety/RCTTypedModuleConstants.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTInspectorDevServerHelper.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTPackagerConnection.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTCxxConvert.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTManagedPointer.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/ReactCommon/ReactCommon/RCTTurboModule.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTModuleMethod.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridgeMethod.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTNullability.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/ReactCommon/ReactCommon/JSCallInvoker.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/ReactCommon/ReactCommon/TurboModule.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-jsi/jsi/jsi.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-jsi/jsi/jsi-inl.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-cxxreact/cxxreact/MessageQueueThread.h

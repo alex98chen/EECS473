@@ -1,0 +1,41 @@
+dependencies: \
+  /Users/isaacdubuque/EECS473/App/node_modules/react-native/Libraries/Image/RCTImageView.m \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Target\ Support\ Files/React-RCTImage/React-RCTImage-prefix.pch \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTView.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTComponent.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTResizeMode.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTInspectorDevServerHelper.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTPackagerConnection.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/Yoga.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/YGEnums.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/YGMacros.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/Yoga/yoga/YGValue.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTEventDispatcher.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageSource.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/UIView+React.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTUIImageViewAnimated.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTAnimatedImage.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageBlurUtils.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageUtils.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageLoaderProtocol.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTURLRequestHandler.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTURLRequestDelegate.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageDataDecoder.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageURLLoader.h \
+  /Users/isaacdubuque/EECS473/App/ios/Pods/Headers/Public/React-Core/React/RCTImageCache.h

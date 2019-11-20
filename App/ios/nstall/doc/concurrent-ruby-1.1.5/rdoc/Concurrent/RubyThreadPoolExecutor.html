@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::RubyThreadPoolExecutor - concurrent-ruby-1.1.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="RubyExecutorService.html">Concurrent::RubyExecutorService</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-can_overflow-3F">#can_overflow?</a>
+    
+    <li ><a href="#method-i-completed_task_count">#completed_task_count</a>
+    
+    <li ><a href="#method-i-largest_length">#largest_length</a>
+    
+    <li ><a href="#method-i-length">#length</a>
+    
+    <li ><a href="#method-i-ns_add_busy_worker">#ns_add_busy_worker</a>
+    
+    <li ><a href="#method-i-ns_assign_worker">#ns_assign_worker</a>
+    
+    <li ><a href="#method-i-ns_enqueue">#ns_enqueue</a>
+    
+    <li ><a href="#method-i-ns_execute">#ns_execute</a>
+    
+    <li ><a href="#method-i-ns_initialize">#ns_initialize</a>
+    
+    <li ><a href="#method-i-ns_kill_execution">#ns_kill_execution</a>
+    
+    <li ><a href="#method-i-ns_limited_queue-3F">#ns_limited_queue?</a>
+    
+    <li ><a href="#method-i-ns_prune_pool">#ns_prune_pool</a>
+    
+    <li ><a href="#method-i-ns_ready_worker">#ns_ready_worker</a>
+    
+    <li ><a href="#method-i-ns_remove_busy_worker">#ns_remove_busy_worker</a>
+    
+    <li ><a href="#method-i-ns_reset_if_forked">#ns_reset_if_forked</a>
+    
+    <li ><a href="#method-i-ns_shutdown_execution">#ns_shutdown_execution</a>
+    
+    <li ><a href="#method-i-ns_worker_died">#ns_worker_died</a>
+    
+    <li ><a href="#method-i-ns_worker_not_old_enough">#ns_worker_not_old_enough</a>
+    
+    <li ><a href="#method-i-queue_length">#queue_length</a>
+    
+    <li ><a href="#method-i-ready_worker">#ready_worker</a>
+    
+    <li ><a href="#method-i-remaining_capacity">#remaining_capacity</a>
+    
+    <li ><a href="#method-i-remove_busy_worker">#remove_busy_worker</a>
+    
+    <li ><a href="#method-i-scheduled_task_count">#scheduled_task_count</a>
+    
+    <li ><a href="#method-i-worker_died">#worker_died</a>
+    
+    <li ><a href="#method-i-worker_not_old_enough">#worker_not_old_enough</a>
+    
+    <li ><a href="#method-i-worker_task_completed">#worker_task_completed</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::RubyThreadPoolExecutor">
+  <h1 id="class-Concurrent::RubyThreadPoolExecutor" class="class">
+    class Concurrent::RubyThreadPoolExecutor
+  </h1>
+
+  <section class="description">
+    
+<p>@!macro thread_pool_executor @!macro thread_pool_options @!visibility private</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_MAX_POOL_SIZE">DEFAULT_MAX_POOL_SIZE
+        
+        <dd><p>@!macro thread_pool_executor_constant_default_max_pool_size</p>
+        
+      
+        <dt id="DEFAULT_MAX_QUEUE_SIZE">DEFAULT_MAX_QUEUE_SIZE
+        
+        <dd><p>@!macro thread_pool_executor_constant_default_max_queue_size</p>
+        
+      
+        <dt id="DEFAULT_MIN_POOL_SIZE">DEFAULT_MIN_POOL_SIZE
+        
+        <dd><p>@!macro thread_pool_executor_constant_default_min_pool_size</p>
+        
+      
+        <dt id="DEFAULT_THREAD_IDLETIMEOUT">DEFAULT_THREAD_IDLETIMEOUT
+        
+        <dd><p>@!macro thread_pool_executor_constant_default_thread_timeout</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-idletime" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">idletime</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!macro thread_pool_executor_attr_reader_idletime</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-max_length" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">max_length</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!macro thread_pool_executor_attr_reader_max_length</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-max_queue" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">max_queue</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!macro thread_pool_executor_attr_reader_max_queue</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-min_length" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">min_length</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!macro thread_pool_executor_attr_reader_min_length</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_method_initialize</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="RubyExecutorService.html#method-c-new"><code>Concurrent::RubyExecutorService::new</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-can_overflow-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_overflow?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_can_overflow_question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="can_overflow-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">can_overflow?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_limited_queue?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-completed_task_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">completed_task_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_completed_task_count</p>
+          
+          
+
+          
+          <div class="method-source-code" id="completed_task_count-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">completed_task_count</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@completed_task_count</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-largest_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">largest_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_largest_length</p>
+          
+          
+
+          
+          <div class="method-source-code" id="largest_length-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">largest_length</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@largest_length</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_length</p>
+          
+          
+
+          
+          <div class="method-source-code" id="length-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">length</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">length</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-queue_length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">queue_length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_queue_length</p>
+          
+          
+
+          
+          <div class="method-source-code" id="queue_length-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">queue_length</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">length</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ready_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ready_worker</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ready_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ready_worker</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_ready_worker</span> <span class="ruby-identifier">worker</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remaining_capacity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remaining_capacity</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_remaining_capacity</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remaining_capacity-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remaining_capacity</span>
+  <span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">ns_limited_queue?</span>
+      <span class="ruby-ivar">@max_queue</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-value">-1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_busy_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_busy_worker</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove_busy_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_busy_worker</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_remove_busy_worker</span> <span class="ruby-identifier">worker</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scheduled_task_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scheduled_task_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro thread_pool_executor_attr_reader_scheduled_task_count</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scheduled_task_count-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">scheduled_task_count</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@scheduled_task_count</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-worker_died" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">worker_died</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="worker_died-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">worker_died</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_worker_died</span> <span class="ruby-identifier">worker</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-worker_not_old_enough" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">worker_not_old_enough</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="worker_not_old_enough-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">worker_not_old_enough</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_worker_not_old_enough</span> <span class="ruby-identifier">worker</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-worker_task_completed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">worker_task_completed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="worker_task_completed-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">worker_task_completed</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@completed_task_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ns_add_busy_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_add_busy_worker</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creates new worker which has to receive work to do after it&#39;s added @return [nil, Worker] nil of max capacity is reached</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_add_busy_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_add_busy_worker</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@max_length</span>
+
+  <span class="ruby-ivar">@pool</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">worker</span> = <span class="ruby-constant">Worker</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>))
+  <span class="ruby-ivar">@largest_length</span> = <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">length</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@largest_length</span>
+  <span class="ruby-identifier">worker</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_assign_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_assign_worker</span><span
+            class="method-args">(*args, &amp;task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>tries to assign task to a worker, tries to get one from @ready or to create new one @return [true, false] if task is assigned to a worker</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_assign_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_assign_worker</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-comment"># keep growing if the pool is not at the minimum yet</span>
+  <span class="ruby-identifier">worker</span> = (<span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">pop</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@min_length</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">ns_add_busy_worker</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">worker</span>
+    <span class="ruby-identifier">worker</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">task</span>, <span class="ruby-identifier">args</span>]
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ThreadError</span>
+  <span class="ruby-comment"># Raised when the operating system refuses to create the new thread</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_enqueue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_enqueue</span><span
+            class="method-args">(*args, &amp;task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>tries to enqueue task @return [true, false] if enqueued</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_enqueue-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 204</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_enqueue</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ns_limited_queue?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@max_queue</span>
+    <span class="ruby-ivar">@queue</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">task</span>, <span class="ruby-identifier">args</span>]
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_execute</span><span
+            class="method-args">(*args, &amp;task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_execute-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">ns_reset_if_forked</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ns_assign_worker</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">ns_enqueue</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+    <span class="ruby-ivar">@scheduled_task_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">handle_fallback</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">ns_prune_pool</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@next_gc_time</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_initialize</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_initialize-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_initialize</span>(<span class="ruby-identifier">opts</span>)
+  <span class="ruby-ivar">@min_length</span>      = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:min_threads</span>, <span class="ruby-constant">DEFAULT_MIN_POOL_SIZE</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@max_length</span>      = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:max_threads</span>, <span class="ruby-constant">DEFAULT_MAX_POOL_SIZE</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@idletime</span>        = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:idletime</span>, <span class="ruby-constant">DEFAULT_THREAD_IDLETIMEOUT</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@max_queue</span>       = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:max_queue</span>, <span class="ruby-constant">DEFAULT_MAX_QUEUE_SIZE</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@fallback_policy</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:fallback_policy</span>, <span class="ruby-value">:abort</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{@fallback_policy} is not a valid fallback policy&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">FALLBACK_POLICIES</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@fallback_policy</span>)
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;`max_threads` cannot be less than #{DEFAULT_MIN_POOL_SIZE}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@max_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">DEFAULT_MIN_POOL_SIZE</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;`max_threads` cannot be greater than #{DEFAULT_MAX_POOL_SIZE}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@max_length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">DEFAULT_MAX_POOL_SIZE</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;`min_threads` cannot be less than #{DEFAULT_MIN_POOL_SIZE}&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@min_length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">DEFAULT_MIN_POOL_SIZE</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;`min_threads` cannot be more than `max_threads`&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">min_length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_length</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">auto_terminate</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:auto_terminate</span>, <span class="ruby-keyword">true</span>)
+
+  <span class="ruby-ivar">@pool</span>                 = [] <span class="ruby-comment"># all workers</span>
+  <span class="ruby-ivar">@ready</span>                = [] <span class="ruby-comment"># used as a stash (most idle worker is at the start)</span>
+  <span class="ruby-ivar">@queue</span>                = [] <span class="ruby-comment"># used as queue</span>
+  <span class="ruby-comment"># @ready or @queue is empty at all times</span>
+  <span class="ruby-ivar">@scheduled_task_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@completed_task_count</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@largest_length</span>       = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@ruby_pid</span>             = <span class="ruby-identifier">$$</span> <span class="ruby-comment"># detects if Ruby has forked</span>
+
+  <span class="ruby-ivar">@gc_interval</span>  = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-value">:gc_interval</span>, <span class="ruby-ivar">@idletime</span> <span class="ruby-operator">/</span> <span class="ruby-value">2.0</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-comment"># undocumented</span>
+  <span class="ruby-ivar">@next_gc_time</span> = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@gc_interval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_kill_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_kill_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_kill_execution-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_kill_execution</span>
+  <span class="ruby-comment"># TODO log out unprocessed tasks in queue</span>
+  <span class="ruby-comment"># TODO try to shutdown first?</span>
+  <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:kill</span>)
+  <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_limited_queue-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_limited_queue?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_limited_queue-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_limited_queue?</span>
+  <span class="ruby-ivar">@max_queue</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_prune_pool" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_prune_pool</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>try oldest worker if it is idle for enough time, it&#39;s returned back at the start</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_prune_pool-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 270</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_prune_pool</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-ivar">@min_length</span>
+
+  <span class="ruby-identifier">last_used</span> = <span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">last_used</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:idle_test</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last_used</span>
+
+  <span class="ruby-ivar">@next_gc_time</span> = <span class="ruby-constant">Concurrent</span>.<span class="ruby-identifier">monotonic_time</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@gc_interval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_ready_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_ready_worker</span><span
+            class="method-args">(worker, success = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>handle ready worker, giving it new job or assigning back to @ready</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_ready_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_ready_worker</span>(<span class="ruby-identifier">worker</span>, <span class="ruby-identifier">success</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">task_and_args</span> = <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">task_and_args</span>
+    <span class="ruby-identifier">worker</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">task_and_args</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># stop workers when !running?, do not return them to @ready</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">running?</span>
+      <span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">worker</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">worker</span>.<span class="ruby-identifier">stop</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_remove_busy_worker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_remove_busy_worker</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>removes a worker which is not in not tracked in @ready</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_remove_busy_worker-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 261</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_remove_busy_worker</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">stopped_event</span>.<span class="ruby-identifier">set</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">running?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_reset_if_forked" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_reset_if_forked</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_reset_if_forked-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 279</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_reset_if_forked</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">$$</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@ruby_pid</span>
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-ivar">@scheduled_task_count</span> = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@completed_task_count</span> = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@largest_length</span>       = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@ruby_pid</span>             = <span class="ruby-identifier">$$</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_shutdown_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_shutdown_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_shutdown_execution-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_shutdown_execution</span>
+  <span class="ruby-identifier">ns_reset_if_forked</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-comment"># nothing to do</span>
+    <span class="ruby-identifier">stopped_event</span>.<span class="ruby-identifier">set</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-comment"># no more tasks will be accepted, just stop all workers</span>
+    <span class="ruby-ivar">@pool</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:stop</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_worker_died" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_worker_died</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_worker_died-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_worker_died</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-identifier">ns_remove_busy_worker</span> <span class="ruby-identifier">worker</span>
+  <span class="ruby-identifier">replacement_worker</span> = <span class="ruby-identifier">ns_add_busy_worker</span>
+  <span class="ruby-identifier">ns_ready_worker</span> <span class="ruby-identifier">replacement_worker</span>, <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">replacement_worker</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_worker_not_old_enough" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_worker_not_old_enough</span><span
+            class="method-args">(worker)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns back worker to @ready which was not idle for enough time</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_worker_not_old_enough-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/ruby_thread_pool_executor.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_worker_not_old_enough</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-comment"># let&#39;s put workers coming from idle_test back to the start (as the oldest worker)</span>
+  <span class="ruby-ivar">@ready</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">worker</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,6 @@
+module Pods_test_project {
+  umbrella header "Pods-test_project-umbrella.h"
+
+  export *
+  module * { export * }
+}

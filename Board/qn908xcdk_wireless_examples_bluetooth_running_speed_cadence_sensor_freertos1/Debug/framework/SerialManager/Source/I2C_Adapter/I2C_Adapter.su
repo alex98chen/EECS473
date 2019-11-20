@@ -1,0 +1,11 @@
+core_cm4.h:1698:22:NVIC_SetPriority	16	static
+I2C_Adapter.c:81:10:I2C_Initialize	32	static
+I2C_Adapter.c:170:13:i2c_slave_transfer_callback	32	static
+I2C_Adapter.c:201:13:i2c_master_transfer_callback	24	static
+I2C_Adapter.c:212:10:I2C_InstallRxCalback	32	static
+I2C_Adapter.c:231:10:I2C_InstallTxCalback	32	static
+I2C_Adapter.c:249:10:I2C_MasterSetSpeed	32	static
+I2C_Adapter.c:266:10:I2C_MasterSend	32	static
+I2C_Adapter.c:315:10:I2C_MasterReceive	32	static
+I2C_Adapter.c:364:10:I2C_SlaveSend	32	static
+I2C_Adapter.c:399:10:I2C_SlaveReceive	32	static

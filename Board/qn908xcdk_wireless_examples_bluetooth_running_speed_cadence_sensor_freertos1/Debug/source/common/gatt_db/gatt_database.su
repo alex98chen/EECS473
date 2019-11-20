@@ -1,0 +1,2 @@
+gatt_database.c:91:13:GattDb_Init	16	static
+gatt_database.c:120:10:GattDb_GetIndexOfHandle	24	static

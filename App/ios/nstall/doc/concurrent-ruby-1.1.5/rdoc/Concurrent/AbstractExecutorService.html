@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Concurrent::AbstractExecutorService - concurrent-ruby-1.1.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Synchronization::LockableObject
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ExecutorService.html">Concurrent::ExecutorService</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-auto_terminate-3D">#auto_terminate=</a>
+    
+    <li ><a href="#method-i-auto_terminate-3F">#auto_terminate?</a>
+    
+    <li ><a href="#method-i-handle_fallback">#handle_fallback</a>
+    
+    <li ><a href="#method-i-kill">#kill</a>
+    
+    <li ><a href="#method-i-ns_auto_terminate-3D">#ns_auto_terminate=</a>
+    
+    <li ><a href="#method-i-ns_auto_terminate-3F">#ns_auto_terminate?</a>
+    
+    <li ><a href="#method-i-ns_execute">#ns_execute</a>
+    
+    <li ><a href="#method-i-ns_kill_execution">#ns_kill_execution</a>
+    
+    <li ><a href="#method-i-ns_shutdown_execution">#ns_shutdown_execution</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-shutdown">#shutdown</a>
+    
+    <li ><a href="#method-i-shutdown-3F">#shutdown?</a>
+    
+    <li ><a href="#method-i-shuttingdown-3F">#shuttingdown?</a>
+    
+    <li ><a href="#method-i-terminate_at_exit">#terminate_at_exit</a>
+    
+    <li ><a href="#method-i-wait_for_termination">#wait_for_termination</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Concurrent::AbstractExecutorService">
+  <h1 id="class-Concurrent::AbstractExecutorService" class="class">
+    class Concurrent::AbstractExecutorService
+  </h1>
+
+  <section class="description">
+    
+<p>@!macro abstract_executor_service_public_api @!visibility private</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="FALLBACK_POLICIES">FALLBACK_POLICIES
+        
+        <dd><p>The set of possible fallback policies that may be set at thread pool creation.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-fallback_policy" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">fallback_policy</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@!macro executor_service_attr_reader_fallback_policy</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new thread pool.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">&amp;</span><span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-auto_terminate-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_terminate=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_auto_terminate_setter</p>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_terminate-3D-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">auto_terminate=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ns_auto_terminate</span> = <span class="ruby-identifier">value</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-auto_terminate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_terminate?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_auto_terminate_question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_terminate-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">auto_terminate?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_auto_terminate?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kill</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_kill</p>
+          
+          
+
+          
+          <div class="method-source-code" id="kill-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">kill</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_running_question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">running?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_running?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shutdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shutdown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_shutdown</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shutdown-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shutdown</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shutdown-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shutdown?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_shutdown_question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shutdown-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shutdown?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_shutdown?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shuttingdown-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shuttingdown?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_shuttingdown_question</p>
+          
+          
+
+          
+          <div class="method-source-code" id="shuttingdown-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shuttingdown?</span>
+  <span class="ruby-identifier">synchronize</span> { <span class="ruby-identifier">ns_shuttingdown?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wait_for_termination" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_for_termination</span><span
+            class="method-args">(timeout = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_wait_for_termination</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_termination-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wait_for_termination</span>(<span class="ruby-identifier">timeout</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle_fallback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_fallback</span><span
+            class="method-args">(*args) { |*args| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handler which executes the `fallback_policy` once the queue size reaches `max_queue`.</p>
+
+<p>@param [Array] args the arguments to the task which is being handled.</p>
+
+<p>@!visibility private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_fallback-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_fallback</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">fallback_policy</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:abort</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">RejectedExecutionError</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:discard</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:caller_runs</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">ex</span>
+      <span class="ruby-comment"># let it fail</span>
+      <span class="ruby-identifier">log</span> <span class="ruby-constant">DEBUG</span>, <span class="ruby-identifier">ex</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;Unknown fallback policy #{fallback_policy}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_auto_terminate-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_auto_terminate=</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_auto_terminate-3D-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_auto_terminate=</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-constant">AtExit</span>.<span class="ruby-identifier">add</span>(<span class="ruby-keyword">self</span>) { <span class="ruby-identifier">terminate_at_exit</span> }
+    <span class="ruby-ivar">@auto_terminate</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-constant">AtExit</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-ivar">@auto_terminate</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_auto_terminate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_auto_terminate?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_auto_terminate-3F-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_auto_terminate?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@auto_terminate</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_execute</span><span
+            class="method-args">(*args, &amp;task)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_execute-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_execute</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_kill_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_kill_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_ns_kill_execution</p>
+
+<pre>Callback method called when the executor has been killed.
+The default behavior is to do nothing.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_kill_execution-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_kill_execution</span>
+  <span class="ruby-comment"># do nothing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_shutdown_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_shutdown_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@!macro executor_service_method_ns_shutdown_execution</p>
+
+<pre>Callback method called when an orderly shutdown has completed.
+The default behavior is to signal all waiting threads.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_shutdown_execution-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ns_shutdown_execution</span>
+  <span class="ruby-comment"># do nothing</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-terminate_at_exit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">terminate_at_exit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="terminate_at_exit-source">
+            <pre><span class="ruby-comment"># File lib/concurrent/executor/abstract_executor_service.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">terminate_at_exit</span>
+  <span class="ruby-identifier">kill</span> <span class="ruby-comment"># TODO be gentle first</span>
+  <span class="ruby-identifier">wait_for_termination</span>(<span class="ruby-value">10</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
