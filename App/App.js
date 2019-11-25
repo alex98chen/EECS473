@@ -590,7 +590,7 @@ export default class App extends Component
   {
     if(!this.state.isServerCon || !this.state.isBleCon) return;
     if(this.state.gameState == "spectator") return;
-    this.serverSendMessage(JSON.stringify(new TouchEvent(base64.decode(characteristic.value))));
+    this.serverSendMessage(JSON.stringify(new TouchEvent( base64.decode(characteristic.value).charCodeAt(0), this.state.serverID)));
   }
 
   _webSocketOnError(e)
