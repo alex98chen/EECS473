@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TextInput } from "react-native";
 import CupertinoButtonInfo from "../components/CupertinoButtonInfo";
 
 function Connect(props) {
-  const [ipAddr, changeIPAddr] = React.useState("35.3.103.191");
+  const [ipAddr, changeIPAddr] = React.useState("473.vinn.ml");
   return (
 
     <View style={styles.container}>

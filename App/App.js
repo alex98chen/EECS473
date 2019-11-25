@@ -15,6 +15,8 @@ import HostGame from "./src/screens/HostGame";
 import HostJoin from "./src/screens/HostJoin";
 import TestBle from "./src/screens/TestBle";
 import Welcome from "./src/screens/Welcome";
+import HostOptions from "./src/screens/HostOptions";
+import { tsExpressionWithTypeArguments } from '@babel/types';
 
 var ledService = "e4a4bfdb-b04f-e5a3-9b44-796890d366d6";
 var ledCharacteristic = "e4a4bfdc-b04f-e5a3-9b44-796890d366d6";
@@ -194,7 +196,8 @@ export default class App extends Component
       currentState: "Welcome",
       allStates: {Welcome:"Welcome", BleCon: "BleCon", TestBle: "TestBle", Connect: "Connect", 
                   HostJoin: "HostJoin", ClientJoin: "ClientJoin", HostLobby: "HostLobby", 
-                  ClientLobby: "ClientLobby", HostTag: "HostTag", ClientTag: "ClientTag"},
+                  ClientLobby: "ClientLobby", HostTag: "HostTag", ClientTag: "ClientTag",
+                  HostOptions: "HostOptions"},
       
       deviceNames: [],
       devices: {},
@@ -274,6 +277,12 @@ export default class App extends Component
     /* Join the game */
     this.onJoinGame = this._onPressJoinGame.bind(this);
     this.onLeaveGame = this._onPressLeaveGame.bind(this);
+
+
+    /* Host Options Page */
+    this.onHostOptionsReturn = this._onPressHostReturn.bind(this);
+    this.onHostOptionsEnter = this._onPressHostOptions.bind(this);
+    
   }
 
 
@@ -577,14 +586,11 @@ export default class App extends Component
     }
   }
 
-  _onTouchEvent(characteristic, error)
+  _onTouchEvent(error, characteristic)
   {
     if(!this.state.isServerCon || !this.state.isBleCon) return;
     if(this.state.gameState == "spectator") return;
-    characteristic.read().then((characteristic) =>
-    {
-      this.serverSendMessage(JSON.stringify(new TouchEvent(base64.decode(characteristic.value))));
-    })
+    this.serverSendMessage(JSON.stringify(new TouchEvent(base64.decode(characteristic.value))));
   }
 
   _webSocketOnError(e)
@@ -676,6 +682,22 @@ export default class App extends Component
     this.setState({gameState: "spectator"});
   }
 
+  _onPressHostReturn()
+  {
+    console.log("Leaving from Host Options");
+    if(this.state.serverStatus != "host") return;
+    if(this.state.gameState != "spectator") this.setState({currentState: this.state.allStates.HostLobby});
+    else this.setState({currentState: this.state.allStates.HostJoin});
+
+  }
+
+  _onPressHostOptions()
+  {
+    console.log("Entering Host Options");
+    if(this.state.serverStatus != "host") return;
+    this.setState({currentState: this.state.allStates.HostOptions});
+  }
+
   render()
   {
     if(this.state.currentState == this.state.allStates.Welcome)
@@ -703,9 +725,9 @@ export default class App extends Component
     }
     else if(this.state.currentState == this.state.allStates.HostJoin)
     {
-      return(<HostJoin onPressLobby={this.onHostPressLobby} onPressTag={this.onHostPressTag} 
-      onPressFreezeTag={this.onHostPressFreezeTag} joinGame={this.onJoinGame}
-      onPressStartGame={this.onHostPressStartGame} onPressEndGame={this.onHostPressEndGame}
+      return(<HostJoin 
+      joinGame={this.onJoinGame}
+      hostOptions={this.onHostOptionsEnter}
       currentGame={this.state.game}
       />);
     }
@@ -713,13 +735,23 @@ export default class App extends Component
     {
       return(<ClientJoin currentGame={this.state.game} joinGame={this.onJoinGame}/>);
     }
+    else if(this.state.currentState == this.state.allStates.HostOptions)
+    {
+      return(<HostOptions onPressLobby={this.onHostPressLobby} onPressTag={this.onHostPressTag} 
+      onPressFreezeTag={this.onHostPressFreezeTag} onPressStartGame={this.onHostPressStartGame} 
+      onPressEndGame={this.onHostPressEndGame}
+      onPressReturn={this.onHostOptionsReturn}
+      gameState = {this.state.gameState}
+      name = {this.state.name}
+      />)
+    }
     else if(this.state.currentState == this.state.allStates.HostLobby 
          || this.state.currentState == this.state.allStates.HostTag)
     {
       // TODO 
       return(<HostGame currentGame={this.state.game} 
       msg1={this.state.msg1} msg2={this.state.ms2} stats={this.state.stats} onLeaveGame={this.onLeaveGame} 
-      onEndGame={this.onHostPressEndGame} name={this.state.name}
+      hostOptions={this.onHostOptionsEnter} name={this.state.name}
        />);
     }
     else if(this.state.currentState == this.state.allStates.ClientLobby

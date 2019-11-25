@@ -19,9 +19,9 @@ function HostGame(props) {
         onPress={props.onLeaveGame}
       />
       <CupertinoButtonInfo
-        caption="End Game"
+        caption="Host Options"
         style={styles.cupertinoButtonInfo2}
-        onPress={props.onEndGame}
+        onPress={props.hostOptions}
       />
     </View>
   );

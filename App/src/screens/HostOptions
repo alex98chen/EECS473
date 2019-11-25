@@ -4,15 +4,13 @@ import CupertinoButtonInfo from "../components/CupertinoButtonInfo";
 import MaterialRadio1 from "../components/MaterialRadio1";
 import { removeProperties } from "@babel/types";
 
-
-
 function HostJoin(props) {
   const [name, changeName] = React.useState("Name");
 
   return (
     <View style={styles.container}>
-      <Text style={styles.host}> Host </Text>
-      <Text style={styles.currentGameLobby}>Current Game: {props.currentGame} </Text>
+      <Text style={styles.host}>Host</Text>
+      <Text style={styles.currentGameLobby}>Current Game: {props.currentGame}</Text>
       <View style={styles.rectRow}> 
         <TextInput style={styles.rect} 
           onChangeText = {name => changeName(name)}
@@ -25,10 +23,30 @@ function HostJoin(props) {
         style={styles.cupertinoButtonInfo}
         onPress={()=>{props.joinGame(name)}}
       />
+      <View style={styles.hostPrivilegesStack}>
+        <Text style={styles.hostPrivileges}>Host Privileges</Text>
+        <MaterialRadio1 selected={props.currentGame == "Lobby"} style={styles.materialRadio1} onPress={props.onPressLobby}/>
+        <MaterialRadio1 selected={props.currentGame == "tag"} style={styles.materialRadio12} onPress={props.onPressTag}/>
+        <MaterialRadio1 selected={props.currentGame == "freeze"} style={styles.materialRadio13} onPress={props.onPressFreezeTag}/>
+        <TouchableOpacity onPress={props.onPressLobby}>
+        <Text style={styles.lobby}>Lobby</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onPressTag}>
+        <Text style={styles.tag}>Tag</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onPressFreezeTag}>
+        <Text style={styles.freezeTag}>Freeze Tag</Text>
+        </TouchableOpacity>
+      </View>
       <CupertinoButtonInfo
-        caption="Host Options"
+        caption="Start Game"
         style={styles.cupertinoButtonInfo2}
-        onPress={props.hostOptions}
+        onPress={props.onPressStartGame}
+      />
+      <CupertinoButtonInfo
+        caption="End Game"
+        style={styles.cupertinoButtonInfo3}
+        onPress={props.onPressEndGame}
       />
     </View>
   );

@@ -4,31 +4,42 @@ import CupertinoButtonInfo from "../components/CupertinoButtonInfo";
 import MaterialRadio1 from "../components/MaterialRadio1";
 import { removeProperties } from "@babel/types";
 
-
-
-function HostJoin(props) {
-  const [name, changeName] = React.useState("Name");
-
+function HostOptions(props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.host}> Host </Text>
-      <Text style={styles.currentGameLobby}>Current Game: {props.currentGame} </Text>
-      <View style={styles.rectRow}> 
-        <TextInput style={styles.rect} 
-          onChangeText = {name => changeName(name)}
-          value={name}
-        />
-        <Text style={styles.name}>Name</Text>
+      <Text style={styles.host}>Host Options Page </Text>
+      <Text style={styles.currentGameLobby}> Current Status: {props.gameState} {(props.gameState != "spectator") 
+      ? (" " +  props.name) : ""}</Text>
+      
+      <CupertinoButtonInfo
+        caption="Return"
+        style={styles.cupertinoButtonInfo}
+        onPress={props.onPressReturn}
+      />
+      <View style={styles.hostPrivilegesStack}>
+        <Text style={styles.hostPrivileges}>Host Privileges</Text>
+        <MaterialRadio1 selected={props.currentGame == "Lobby"} style={styles.materialRadio1} onPress={props.onPressLobby}/>
+        <MaterialRadio1 selected={props.currentGame == "tag"} style={styles.materialRadio12} onPress={props.onPressTag}/>
+        <MaterialRadio1 selected={props.currentGame == "freeze"} style={styles.materialRadio13} onPress={props.onPressFreezeTag}/>
+        <TouchableOpacity onPress={props.onPressLobby}>
+        <Text style={styles.lobby}>Lobby</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onPressTag}>
+        <Text style={styles.tag}>Tag</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={props.onPressFreezeTag}>
+        <Text style={styles.freezeTag}>Freeze Tag</Text>
+        </TouchableOpacity>
       </View>
       <CupertinoButtonInfo
-        caption="Join Game"
-        style={styles.cupertinoButtonInfo}
-        onPress={()=>{props.joinGame(name)}}
+        caption="Start Game"
+        style={styles.cupertinoButtonInfo2}
+        onPress={props.onPressStartGame}
       />
       <CupertinoButtonInfo
-        caption="Host Options"
-        style={styles.cupertinoButtonInfo2}
-        onPress={props.hostOptions}
+        caption="End Game"
+        style={styles.cupertinoButtonInfo3}
+        onPress={props.onPressEndGame}
       />
     </View>
   );
@@ -179,4 +190,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HostJoin;
+export default HostOptions;
